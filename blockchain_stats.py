@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv("tagged_addresses.csv")
+df = pd.read_csv("data/tagged_addresses.csv")
 
 chains = list( set(df.columns).difference(['address','names']) )
 
