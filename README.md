@@ -15,3 +15,11 @@
 * [get_tornado_logs.py](get_tornado_logs.py) - gets all the events from all the Tornado Cash contracts on the SDN list and stores them in the data/ folder
 * [utils.py](utils.py) - helper script to get contract data from Etherscan
 * [blockchain_stats.py](blockchain_stats.py) - Displays some basic summary statistics about how many entries on the SDN list correspond to cryptocurrency addresses
+	
+|Chain|Number of Entries|
+|------|------|
+|Bitcoin|291|
+|Ethereum|71|
+|Tron|1|
+|Ripple|1|
+|Dogecoin|1|

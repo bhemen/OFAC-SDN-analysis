@@ -4,28 +4,13 @@ df = pd.read_csv("data/tagged_addresses.csv")
 
 chains = list( set(df.columns).difference(['address','names']) )
 
-chain_stats = {}
+chain_names = {chain:chain.capitalize() for chain in chains}
+chain_names['tronix'] = 'Tron'
+chain_names['eos'] = 'EOS'
 
-for c in chains:
-	cdf = df[df[c]][['address','names']]
-	if df.shape[0] == 1:
-		print( f"{cdf.shape[0]} entry for chain {c}" )
-	else:
-		print( f"{cdf.shape[0]} entries for chain {c}" )
-	chain_stats.update( {c:cdf.shape[0]} )
-	print( cdf )
-	print( "\n======================================\n" )
+totals = pd.DataFrame(df[chains].sum(axis=0)).reset_index()
+totals.columns = ['chain','count']
+totals.sort_values('count',ascending=False,inplace=True)
+totals.chain = totals.chain.apply( lambda x: chain_names[x] )
+print( totals )
 
-
-for c,v in chain_stats.items():
-	print( f"{c} - {v} entries" )
-
-
-#tornado = pd.read_csv("tornado_addresses.csv")
-#
-#for a in tornado.detail:
-#	if len(df[df['address']==a]['ethereum']) > 0 and df[df['address']==a]['ethereum'].all():
-#		print( f"Address {a} is a valid Ethereum address" )
-#	else:
-#		print( f"Error: a tornado cash address was *not* tagged as a valid Ethereum address" )
-#	print( df[df['address']==a] )
