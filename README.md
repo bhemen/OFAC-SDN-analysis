@@ -15,6 +15,9 @@
 * [get_tornado_logs.py](get_tornado_logs.py) - gets all the events from all the Tornado Cash contracts on the SDN list and stores them in the data/ folder
 * [utils.py](utils.py) - helper script to get contract data from Etherscan
 * [blockchain_stats.py](blockchain_stats.py) - Displays some basic summary statistics about how many entries on the SDN list correspond to cryptocurrency addresses
+* [get_eth_transfer.py](get_eth_transfer.py) - Collects up/downstream transfers of these 71 Ethereum wallets 
+* [process_eth_transfer.py](process_eth_transfer.py) - Convert blocknumber of ETH transfers to date time format
+* [eth_transfer_network.py](eth_transfer_network.py) - Visualize the network of ETH transfers
 	
 |Chain|Number of Entries|
 |------|------|
